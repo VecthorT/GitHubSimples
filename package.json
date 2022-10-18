@@ -1,0 +1,26 @@
+{
+  "name": "gitsimples",
+  "version": "1.0.0",
+  "description": "Sistema criado para treino de requisição API, utilizando a API do próprio GITHUB",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VecthorT/GitHubSimples.git"
+  },
+  "author": "Vecthor Teixeira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VecthorT/GitHubSimples/issues"
+  },
+  "homepage": "https://github.com/VecthorT/GitHubSimples#readme",
+  "dependencies": {
+    "bootstrap": "^4.6.2"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}
