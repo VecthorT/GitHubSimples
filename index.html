@@ -10,29 +10,27 @@
 </head>
 <body class="bg-dark">
     <div class="container">
-        <div class="row align-items-center mt-4 justify-content-center">
-            <div class="mt-2 col-lg-4 text-center d-none " id="div-perfil">
-                <div class="row text-center">
+        <div class="row mt-4 justify-content-start">
+            <div class="mt-2 col-lg-4 text-center d-none bounce-in sucess" id="div-perfil">
                     <img src=""
                     class="card-img-top rounded-circle" style="width: 16em"
                     alt="Foto Perfil" id="avatar-url"/>
-                </div>
-                <div class="row mt-4 d-none" id="card-perfil">
-                    <div class="col d-none" id="seguidores">
+                <div class="row mt-4" id="card-perfil">
+                    <div class="col d-none sucess" id="seguidores">
                         <div class="row justify-content-center">
                             <i class="fa-solid fa-heart text-danger">
                                 <span class="text-light" id="followers"></span>
                             </i>
                         </div>
                         <div class="row justify-content-center">
-                            <a href="" target="_blank" id="git-user">
+                            <a href="" target="_blank" id="git-user" class="text-decoration-none">
                                 <h6 class="text-muted mt-2"id="username"></h6>
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-8 mt-2 d-none"  id="infos">
+            <div class="col-lg-8 col-sm-12 mt-2 d-none sucess">
                 <div>
                     <h3 class="text-light d-inline" id="name"></h3>
                 </div>
@@ -44,11 +42,11 @@
                     class="text-secondary" id="blog"></a>
                 </div>
                 <hr>
-                <div>
-                    <h6 class="text-muted mt-2" id="bio"></h6>
-                </div>
                 <div class="mt-1">
                         <li class="d-inline text-white-50" id="company"></li>
+                </div>
+                <div class="col-6">
+                    <h6 class="text-muted mt-2" id="bio"></h6>
                 </div>
 
             </div>
@@ -70,7 +68,7 @@
                           </div>
                     </div>
                 </div>
-                <div class="row justify-content-center align-items-center d-none" id="texto-erro">
+                <div class="row justify-content-center align-items-center d-none erro" id="texto-erro">
                     <span class="text-warning">NADA ENCONTRADO</span>
                 </div>
             </div>

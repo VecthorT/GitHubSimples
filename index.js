@@ -5,6 +5,15 @@ const valueUserName = document.getElementById('name-proc')
 
 const divAvatar = document.getElementById('div-perfil')
 const imgAvatar = document.getElementById('avatar-url')
+const seguidores = document.getElementById('followers')
+const gitUser = document.getElementById('git-user')
+const userName = document.getElementById('username')
+const infoName = document.getElementById('name')
+const blog = document.getElementById('blog')
+const bio = document.getElementById('bio')
+const company = document.getElementById('company')
+const invisibleElements = document.getElementsByClassName('sucess')
+
 
 // 
 
@@ -28,13 +37,25 @@ const dados = (urlGet)=>{
 
 btnSearch.addEventListener('click', ()=>{
     const urlGet = `${urlApi}/${valueUserName.value}`
-    const data = dados(urlGet)
+    divAvatar.classList.remove('bounce-in')
+    
+    dados(urlGet)
     
 })
-function dataApi(data){
-
-    divAvatar.classList.remove('d-none')
-    divAvatar.classList.remove('bounce-in')
-
+function dataApi(data){    
+    divAvatar.classList.add('bounce-in')
+    for(i=0;i < invisibleElements.length; i++){
+        invisibleElements[i].classList.remove('d-none')
+        console.log(invisibleElements[i])
+    }
+   
+    // Colocando as Infos no HTML
     imgAvatar.src = data.avatar_url
+    seguidores.innerHTML = data.followers
+    userName.innerHTML = data.login
+    gitUser.href = data.html_url
+    infoName.innerHTML = data.name
+    blog.innerHTML = data.blog
+    bio.innerHTML = data.bio
+    company.innerHTML = data.company
 }
