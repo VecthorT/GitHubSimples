@@ -12,21 +12,23 @@ const infoName = document.getElementById('name')
 const bio = document.getElementById('bio')
 const company = document.getElementById('company')
 const divErro = document.getElementById('texto-erro')
+const divfollowers = document.getElementById('div-seguidores')
 const invisibleElements = document.getElementsByClassName('sucess')
+const addImage = document.createElement("img", {"id":"img-followers"})
 
 
 // 
 
 const dados = (urlGet)=>{
-        fetch(urlGet).then((res)=>{
-        if (res.status === 200) {
-            return res.json()
-        }else{
-            erroApi()
-            throw new Error('Api is not good')
-            
+    fetch(urlGet).then((res)=>{
+    if (res.status === 200) {
+        return res.json()
+    }else{
+        erroApi()
+        throw new Error('Api is not good')
+        
 
-        }
+    }
     }).then((res)=>{
         console.log(res)
         dataApi(res)
@@ -60,6 +62,8 @@ function dataApi(data){
     infoName.innerHTML = data.name
     bio.innerHTML = data.bio
     company.innerHTML = data.company
+    apiImagesFollowers(data.followers_url)
+    
 }
 function erroApi(){
     divErro.classList.remove('d-none')
@@ -70,4 +74,37 @@ function erroApi(){
         console.log(invisibleElements[i])
     }
     divAvatar.classList.remove('d-none')
+}
+function imagesSeguidores(dataRes){
+    data = dataRes
+    console.log(dataRes.length)
+    data.forEach((element) => {
+        let imgFollowers = new Image()
+        imgFollowers.src = element.avatar_url
+        imgFollowers.classList.add('card-img-top')
+        imgFollowers.classList.add('rounded-circle')
+        imgFollowers.classList.add('foto-seguidores')
+        divfollowers.appendChild(imgFollowers)
+        // const imgFollowers = document.getElementById('img-followers')
+        // imgFollowers.src = element.avatar_url
+
+    })
+}
+
+const apiImagesFollowers = (urlApiFollowers)=>{
+    fetch(urlApiFollowers).then((res)=>{
+        if (res.status === 200) {
+            return res.json()
+        }else{
+            erroApi()
+            throw new Error('Api is not good')    
+        }
+        }).then((res)=>{
+            console.log(res)
+            imagesSeguidores(res)
+            return res
+    
+        }).catch((error)=>{
+            console.error(error)
+        })
 }
