@@ -9,9 +9,9 @@ const seguidores = document.getElementById('followers')
 const gitUser = document.getElementById('git-user')
 const userName = document.getElementById('username')
 const infoName = document.getElementById('name')
-const blog = document.getElementById('blog')
 const bio = document.getElementById('bio')
 const company = document.getElementById('company')
+const divErro = document.getElementById('texto-erro')
 const invisibleElements = document.getElementsByClassName('sucess')
 
 
@@ -22,7 +22,9 @@ const dados = (urlGet)=>{
         if (res.status === 200) {
             return res.json()
         }else{
+            erroApi()
             throw new Error('Api is not good')
+            
 
         }
     }).then((res)=>{
@@ -43,6 +45,7 @@ btnSearch.addEventListener('click', ()=>{
     
 })
 function dataApi(data){    
+    divErro.classList.add('d-none')
     divAvatar.classList.add('bounce-in')
     for(i=0;i < invisibleElements.length; i++){
         invisibleElements[i].classList.remove('d-none')
@@ -55,7 +58,16 @@ function dataApi(data){
     userName.innerHTML = data.login
     gitUser.href = data.html_url
     infoName.innerHTML = data.name
-    blog.innerHTML = data.blog
     bio.innerHTML = data.bio
     company.innerHTML = data.company
+}
+function erroApi(){
+    divErro.classList.remove('d-none')
+    imgAvatar.src = 'https://media.tenor.com/_BiwWBWhYucAAAAd/what-huh.gif'
+    divAvatar.classList.add('bounce-in')
+    for(i=0;i < invisibleElements.length; i++){
+        invisibleElements[i].classList.add('d-none')
+        console.log(invisibleElements[i])
+    }
+    divAvatar.classList.remove('d-none')
 }

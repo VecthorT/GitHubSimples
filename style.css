@@ -16,3 +16,7 @@
 href{
   text-decoration: none;
 }
+#avatar-url{
+  width: 16em;
+  height: 16em;
+}
